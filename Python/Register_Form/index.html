@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <meta name = "format-detection" content = "telephone=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>All In One Demo-2</title>
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-social.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+	<link href="assets/css/css3.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="assets/js/modernizr-2.8.0.min.js"></script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<!-- Header Start -->
+		<header id="header">
+			<nav class="navbar navbar-inverse navbar-fixed-top"> 
+				<div class="container-fluid"> 
+				<div class="navbar-header"> 
+					<button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false"> 
+						<span class="sr-only"></span> 
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span> 
+					</button> 
+					<a href="#" class="navbar-brand"><span class="glyphicon glyphicon-king"></span> All In One</a>
+					<div class="social-icons hidden-lg"> 
+							<a  href="#"><img src="assets/images/facebook.png" alt="facebook"></a>
+							<a  href="#"><img src="assets/images/twitter.png" alt="twitter"></a>
+							<a  href="#"><img src="assets/images/google-plus.png" alt="gogoleplus"></a>
+					</div> 
+
+				</div> 
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9"> 
+					<ul class="nav navbar-nav navleft"> 
+						<li class="active"><a class="page-scroll" href="#">Home</a></li>
+						<li class="dropdown">
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+				          <ul class="dropdown-menu">
+				            <li><a href="#">Menu 1</a></li>
+				            <li><a href="#">Menu 2</a></li>
+				          </ul>
+				        </li>
+						<li><a class="page-scroll" href="#">Contact Us</a></li>
+					</ul> 
+					<ul class="nav navbar-nav navright visible-lg"> 
+						<li>
+							<a  href="#"><img src="assets/images/facebook.png" alt="facebook"></a>
+						</li> 
+						<li>
+							<a  href="#"><img src="assets/images/twitter.png" alt="twitter"></a>
+						</li> 
+						<li>
+							<a  href="#"><img src="assets/images/google-plus.png" alt="googleplus"></a>
+						</li> 
+					</ul> 
+				</div> 
+			</div>
+			</nav>
+		</header>
+		<!-- Content Start -->
+		<section id="contact-form" style="background-image: url('assets/images/contact-form-background.png');">
+			<div class="container">
+				<div class="sectionHeading">
+					<h1>Registration Form</h1>
+					<hr>
+				</div>
+				<form name="contactForm" method="POST" action="/Display" onsubmit="return validateForm()">
+					<div class="row">
+						<div class="col-md-6">
+						<div class="form-group">
+							<label for="name">Name*</label>
+							<label class="validationMsg" id="valMsgName" for="name"></label>
+							<input class="form-control" type="text" name="name" id="name">
+						</div>
+						</div>
+						<div class="col-md-6">
+						<div class="form-group">
+							<label for="email">Email*</label>
+							<label class="validationMsg" id="valMsgEmail" for="email"></label>
+							<input class="form-control" type="email" name="email" id="email">
+						</div>
+						</div>
+						<div class="col-md-6">
+						<div class="form-group">
+							<label for="address">Address*</label>
+							<label class="validationMsg" id="valMsgAddress" for="address"></label>
+							<textarea class="form-control" id="address" name="address" rows="3"></textarea>						
+						</div>
+						</div>
+						<div class="col-md-6">
+						<div class="form-group">
+							<label for="country">Country*</label>
+							<label class="validationMsg" id="valMsgCountry" for="country"></label>
+							<select name="country" id="country" class="input-medium bfh-countries form-control" data-country="IN">
+							</select>						
+						</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="col-md-6">
+						<div class="form-group">
+							<label for="contactno">Contact No*</label>
+							<label class="validationMsg" id="valMsgContactNo" for="contactno"></label>
+							<input class="form-control" id="contactno" type="text" name="contactno">
+						</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+							<label>Gender*</label>
+							<label class="validationMsg" id="valMsgGender"></label>
+								<div class="radio" >
+									<label for="maleGen" class="radio-inline control-label">
+								  		<input type="radio" name="gender" id="maleGen" value="male">Male
+									</label>
+									<label for="femaleGen" class="radio-inline control-label">
+								  		<input type="radio" name="gender" id="femaleGen" value="female">Female
+									</label>
+								</div>
+							</div>
+						</div>						
+						<div class="clearfix"></div>
+						<div class="col-md-6">
+						<div class="form-group">
+						    <label for="uploadFile">Upload File*</label>
+							<label class="validationMsg" id="valMsgFile"></label>
+						    <input name="uploadFile" type="file" id="uploadFile">
+						    <p class="help-block">Upload any file for the contact use</p>
+						</div>	
+						</div>
+						<div class="col-md-6">
+						<div class="form-group">
+							<label for="verification">Verification*</label>
+							<label class="validationMsg" id="valMsgVerification"></label>
+							<div class="checkbox">
+								<label>
+							      <input type="checkbox" id="verification"> I'm not a Robot
+							    </label>
+						    </div>
+						</div>
+						</div>
+						<div class="col-md-6"></div>
+						<div class="col-md-6">
+						<div class="form-group">
+							<input type="submit" class="btn btn-primary btn-lg" value="Submit">
+						</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+		<!-- Footer Start -->
+		<footer id="footer">
+		</footer>
+	</div>
+    
+    <!-- JavaScript files -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap-formhelpers-countries.en_US.js"></script>
+    <script src="assets/js/bootstrap-formhelpers-countries.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="assets/js/jquery.dotdotdot.js"></script>
+    <script type="text/javascript" language="javascript">
+		$(function() {
+				$('.dot1').dotdotdot({
+					after: 'a.readmore'
+				});		
+		});
+	</script>
+
+	<script src="assets/js/cssua.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+</html>

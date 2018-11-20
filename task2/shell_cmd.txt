@@ -1,0 +1,32 @@
+from student.models import Student, Institute, Branch, FeeType, Fee, Transaction
+from django.contrib.auth.models import User
+from student.models import Student
+
+Fee.objects.all()
+i1 = Institute.objects.get(pk=1)
+b1 = Branch.objects.get(pk=1)
+
+u1 = User.objects.get(pk=22)
+u2 = User.objects.get(pk=2)
+u3 = User.objects.order_by('id')[0].id
+
+s1 = Student.objects.filter(user=u1)
+s1, created  = Student.objects.get_or_create(user=u1, birth_date="2018-10-08", branch=b1, institute=i1, enrol_no= "21433534")
+
+User.objects.create(id=21, username="tiger", password="tiger@1234", user.Student.enrol_no = "1234556789")
+
+f1, created  = Fee.objects.get_or_create(user=u1)
+created
+
+exam = "Exam"
+ft = FeeType.objects.get(name=exam)
+f1.fees_paid.add(ft) 
+
+f1 =  FeeType.objects.filter(is_active=True)
+
+
+# Import Export
+from student.admin import UserResource
+
+ dataset = UserResource().export()
+ print(dataset.csv)

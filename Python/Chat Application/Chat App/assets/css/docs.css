@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css?family=Barrio|Source+Code+Pro:400,500,600,700,900');
+
+/* Body and General Styles Start font-family: 'Source Code Pro', monospace;
+-------------------------------------------------- */
+body {
+    font-family: 'Source Code Pro', monospace;
+    height: 100vh;
+    background-size:cover ;
+    background: url("../images/index-background1.jpg") no-repeat center center;
+}
+/*.index-body{*/
+    /*background-size:cover ;*/
+    /*background: url("../images/index-background1.jpg") no-repeat center center;*/
+/*}*/
+/* Body End
+-------------------------------------------------- */
+
+.logo{
+    background: rgba(0,0,0,0.7);
+    color:white;
+    height: 8vh;
+    padding: 2vh;
+    text-align: center;
+    /*height: 8vh;*/
+}
+.logo h2{
+    padding: 0;
+    margin: 0;
+    font-family: 'Barrio', cursive;
+}
+
+.outer {
+    display: table;
+    position: absolute;
+    height: 92vh;
+    width: 100%;
+
+}
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto;/*whatever width you want*/;
+}
+.inner .btn{
+    padding: 15px 30px;
+    box-shadow: 0px 0px 20px 2px rgba(255,255,255,.5);
+}
+.btn{
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border: none;
+}
+.btn:hover, .btn:focus, .btn:active{
+    background: black;
+    border: none;
+}
+
+.modal-header h4{
+     font-family: 'Barrio', cursive;
+}
+.close{
+    color: white;
+}
+.close:hover{
+    color: white;
+}
+
+
+
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 5; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav ul li,.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    word-break: break-all;
+}
+.sidenav ul{
+    padding-left: 0;
+}
+.sidenav ul li span{
+    color:green;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    /*padding: 20px;*/
+}
+
+#toggle-btn{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    /*border: 2px solid rgba(255,255,255,0.5);*/
+    /*z-index: 1;*/
+}
+
+.chat-window{
+    position: relative;
+    height: 80vh;
+    padding: 10px 10px 10px 60px;
+}
+.msg-window{
+    /*border: 5px solid rgba(255,255,255,0.5);*/
+    height: 100%;
+    /*border: 2px solid rgba(255,255,255,0.8);*/
+    border-radius: 3px;
+    /*padding: 15px;*/
+    color: black;
+    font-size: 110%;
+    overflow: auto;
+}
+.msg-window li{
+    overflow: auto;
+    margin: 5px;
+    border-radius: 3px;
+    max-width: 90%;
+    /*background: white;*/
+}
+
+.typing-window{
+    height: 10vh;
+    margin: 0 10px 10px 60px;
+}
+.msg-window .panel-heading{
+    padding: 5px 15px;
+}
+#send-button{
+    width: 5%;
+    cursor: pointer;
+    background-color: #66afe9;
+    color:white;
+}
+#c_ul{
+    list-style: none;
+    padding-left: 0;
+    overflow: auto;
+}
+#c_ul span{
+    float: right;
+    opacity: 0.7;
+    margin-left: 15px;
+    font-weight: normal;
+}
+#log_out{
+    position: absolute;
+    bottom: 10px;
+    cursor: pointer;
+}
+.emoji{
+    padding-top: 5px;
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+}
+.emoji .smiley{
+    height: 5vh;
+    width: 4vh;
+    background: transparent;
+    cursor: pointer;
+    margin-left: 1vh;
+    display: inline-block;
+}
+.emoji .smiley img{
+    height: auto;
+    width: 100%;
+}
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav ul li {font-size: 12px;}
+}
+
+@media (max-width: 1199px) {
+}
+
+@media (max-width: 991px) {
+}
+
+@media (max-width: 767px) {
+}
+
+/* Responsive Style End
+-------------------------------------------------- */

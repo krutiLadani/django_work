@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+   <h2> <center> <i> Cart Items </i> </center> </h2>
+  
+  {% for product in product_number %}
+    <div id={{product.id}}>
+      <p><strong>Product Name:{{ product.product_detail}} </strong></p>
+      <p id="total_product_{{ product.product_detail.id }}"><strong>Total Product:{{product.total_product}} </strong></p>
+      <p id="total_price_{{product.product_detail.id}}_price"><strong>Product Price:  <i class= "fa fa-inr font"> {{product.total_price }} </i> </strong></p>
+
+      <form class="vform">
+      <input type="number" id="{{product.product_detail.id}}" value="{{product.total_product}}" class="number "/>
+     </form>
+
+      <button type="submit" class="buynow"> <a href="{% url 'checkout' %}"> BUY NOW </a> </button>
+      <button type="submit" data-id = "{{product.id}}" class="delete"> DELETE </button>
+   </div>
+  {% endfor %}
+
+   <div class="checkout">
+  <button type="submit"> <a href="{% url 'checkout' %}" data-id="{{ cart.id }}">Processed To Checkout </a> </button>
+  </div>
+
+
+ <script type="text/javascript">
+  
+
+$(".delete").click(function(){
+  var username = "{{ request.user.username }}";
+  var product_id = $(this).attr('data-id');
+  $.ajax({
+    method: "POST",
+    url: '/shop/'+product_id+'/remove', 
+    data: {"username": username, "product_id": product_id},
+    dataType: 'json',
+})
+  .done(function( data ) {
+    if(data.success){
+      $('#'+data.product_id).remove();
+      console.log('test');
+    }
+  });
+
+});
+
+$(".number").change(function(){
+  var product_id = $(this).attr('id');
+  var username = "{{ request.user.username }}";
+  var total_product = $(this).val();
+  $.ajax({
+    method: "POST",
+    url: '/shop/add_to_cart', 
+    data: {"username": username, "product_id": product_id, "total_product": total_product},
+    dataType: 'json',
+})
+  .done(function( data ) {
+    if(data.success){
+      $('#total_price_'+data.product_id).text(data.total_price);
+      $('#total_product_'+data.product_id).text(data.total_product);
+      console.log('test');
+    }
+  });
+});
+</script>
+
+{% endblock %}
+

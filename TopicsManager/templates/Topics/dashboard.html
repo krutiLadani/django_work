@@ -1,0 +1,88 @@
+{% extends 'Topics/general.html' %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <ul class="collapsible" data-collapsible="expandable">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">today</i>Today's Topics
+                </div>
+                <div class="collapsible-body ">
+                    {% if today_topic %}
+                        <div class="row">
+                            <div class="col s12 m6 offset-m3">
+                                <div class="card blue-grey darken-1">
+                                    <div class="card-content white-text">
+                                        <p>{{ today_topic.topic_id }}</p>
+                                    </div>
+                                    <div class="card-action grey-text">
+                                        Today
+                                        <a class="waves-effect waves-light right copy_this"
+                                           data-clipboard-text="{{ today_topic.topic_id.pass_code }}">
+                                            <i class="material-icons right">assignment</i> Copy Pass Code
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="center-align">
+                            <a class="waves-effect waves-light btn-large" href="{% url 'add_topic' %}">
+                                <i class="material-icons right">play_for_work</i> Get Topic of the Day
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header">
+                    <i class="material-icons">restore</i>History
+                    <span class="right grey-text">Last 7 days</span>
+                </div>
+                <div class="collapsible-body">
+                    {% if previous_topics %}
+                        <div class="row">
+                            {% for topic in previous_topics %}
+                                <div class="col s12 m6">
+                                    <div class="card blue-grey darken-1">
+                                        <div class="card-content white-text">
+                                            <p>{{ topic.topic_id }}</p>
+                                        </div>
+                                        <div class="card-action grey-text">
+                                            {{ topic.selected_on }}
+                                            <a class="waves-effect waves-light right copy_this"
+                                               data-clipboard-text="{{ topic.topic_id.pass_code }}">
+                                                <i class="material-icons right">assignment</i> Copy Pass Code
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p>-- NO PREVIOUS TOPICS --</p>
+                    {% endif %}
+                </div>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+{% block other_scripts %}
+    {% if messages %}
+        {% for message in messages %}
+            {{ message.message }}
+            <script>Materialize.toast('{{ message.message }}', 3000, 'rounded')</script>
+        {% endfor %}
+    {% endif %}
+    <script>
+        $(document).ready(function () {
+            $('.collapsible').collapsible('open', 0);
+            $('.collapsible').collapsible('open', 1);
+            var copy_this = document.getElementsByClassName('copy_this');
+            var clipboard = new Clipboard(copy_this);
+        });
+    </script>
+{% endblock %}

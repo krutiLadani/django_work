@@ -1,0 +1,82 @@
+{% block content %}
+<div class='wrapper'>
+             <div class='header'>
+             <div class="logo">
+        	{% load static %}
+        	<img src="{% static "images/logo.jpeg" %}" alt="My image" style="width: 100px;" /> 
+ 			</div>
+                 <p class='title'>Invoice id: # {{ invoice_id }}</p>
+             </div>
+         <div class='details'>
+             Bill to: {{customer_name}} <br/>
+             Amount:  {{amount}} <br/>
+             <hr class='hrItem' />
+         </div>
+     </div>
+
+<div class="logo">
+        {% load static %}
+        <img src="{% static "images/logo.jpeg" %}" alt="My image" style="width: 100px;" /> 
+ </div>
+<h3> Checkout Complete - Thank You </h3>
+<P> Thank you for your order. You will receive an e-mail confirmation shortly and will be connected again when your order shipped. Please print this page for your record.</P>
+<div id="invoice-POS">
+   <div id="mid">
+      <div class="info">
+        <h2>Contact Info</h2>
+        <p> 
+            Address : street city, state 0000</br>
+            Email   : JohnDoe@gmail.com</br>
+            Phone   : 555-555-5555</br>
+        </p>
+      </div>
+    </div><!--End Invoice Mid-->
+    
+    <div id="bot">
+
+					<div id="table">
+						<table>
+							<tr class="tabletitle">
+								<td class="item"><h2>Products</h2></td>
+								<td class="Hours"><h2> <center> Qty </center></h2></td>
+								<td class="Rate"><h2> <center> Sub Total </center></h2></td>
+							</tr>
+
+							<tr class="service">
+								<td class="tableitem"><p class="itemtext">
+									{% for product in product_number %}
+					                  <div id={{product.id}}>
+					                  <p> {{ product.product_detail}} </p>
+					                  </div>
+									{% endfor %}
+								</p></td>
+								<td class="tableitem"><p class="itemtext">
+									{% for product in product_number %}
+					                  <div id={{product.id}}>
+					                  <p> <center>{{product.total_product}} </center> </p>  
+					                  </div>
+					  					{% endfor %}
+								</p></td>
+								<td class="tableitem" style="text-align: center;"><p class="itemtext">
+									{% for product in product_number %}
+					                  <div id={{product.id}}>
+					                  <p> <i class= "fa fa-inr font"> {{product.total_price}} </i> </p> 
+					                  </div>
+					  				{% endfor %}
+								</p></td>
+							</tr>
+							<tr class="tabletitle">
+								<td></td>
+								<td class="Rate"></td>
+								<td class="payment"><h2>
+									<center> Total: {{amount}} </center>
+								</h2></td>
+							</tr>
+
+						</table>
+					</div><!--End Table-->
+
+				</div><!--End InvoiceBot-->
+  </div><!--End Invoice-->
+
+{% endblock %}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  {% block title %}<title>Kitchen Appliances</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div id="wrapper">
+    <!-- Header Start -->
+    <header id="header">
+      <div class="container">
+        <div class="phone">
+          <a href="#">
+            <i class="fa fa-phone"></i>123-123456789
+          </a>
+        </div>
+        <div class="email">
+          <a href="#">
+            <i class="fa fa-envelope"></i>info@tnt.com
+          </a>
+        </div>
+      </div> 
+     
+    </header>
+   
+    <div class="container">
+    <div class="row">
+     <div class="col-md-3">
+    <div class="logo">
+        {% load static %}
+        <a href="{% url 'index' %}"> <img src="{% static "images/logo.jpeg" %}" alt="My image"/> </a>
+    </div>
+    </div>
+     <div class="col-md-6">
+    <div class="search">
+       <h2> KITCHEN APPLIANCES </h2>
+    </div>
+    </div>
+    <div class="col-md-3">
+      <div class="login">
+         {% if user.is_authenticated %}
+          <p class="uname"> Hi {{ user.username }}! </p>
+          <p><a href="{% url 'logout' %}" class="name">logout</a></p>
+          {% else %}
+          <a href="{% url 'login' %}" class="name">Login</a> |
+          <a href="{% url 'signup' %}" class="name">SignUp</a>
+          {% endif %}
+      </div>
+    </div>
+    </div>
+ {% block content %}
+ {% endblock %}
+</div>
+
+</body>
+</html>

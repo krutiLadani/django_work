@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">-->
+    <meta name = "format-detection" content = "telephone=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title> &bull; Unknown Friends &bull; </title>
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles-->
+    <link href="assets/css/docs.css" rel="stylesheet">
+	<link href="assets/css/css3.css" rel="stylesheet">
+
+    <script src="assets/js/modernizr-2.8.0.min.js"></script>
+	<script>
+	user = localStorage.getItem('nick-name');
+    if(user != "" && user != null){
+        window.location = "chatroom.html";
+    }
+
+	</script>
+</head>
+
+<body class="index-body">
+	<!-- Header Start -->
+	<div class="logo">
+		<h2> &bull; Unknown Friends &bull; </h2>
+	</div>
+
+	<div class="outer">
+		<div class="middle">
+			<div class="inner">
+
+				<button type="button" autofocus name="enterRoom" id="enterRoom" data-toggle="modal" data-target="#nickNameModal" class="btn btn-primary btn-lg" >Enter Room &gt;</button>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="nickNameModal" tabindex="-1" role="dialog" aria-labelledby="nickNameModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header" style="background: rgba(0,0,0,0.7);color: white">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span>
+					</button>
+					<h4 class="modal-title" id="exampleModalLabel"> &bull; Unknown Friends &bull; </h4>
+				</div>
+				<div class="modal-body">
+					<form action="chatroom.html" method="POST" class="form-inline" onsubmit="localStorage.setItem('nick-name',document.getElementById('nick-name').value)">
+						<div class="form-group" style="width: 100%">
+							<div class="row">
+								<div class="col-sm-9 col-md-9 col-xs-7">
+									<input style="width: 100%;" type="text" autocomplete="off" required class="form-control" name="nickname" id="nick-name" placeholder="Enter Nick Name">
+								</div>
+								<div class="col-sm-3 col-md-3 col-xs-5">
+									<button type="submit" style="float: right" class="btn btn-primary" onclick="return validateName()">Enter Room &gt;</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+    <!-- JavaScript files -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript -->
+	<script src="assets/js/cssua.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+</html>

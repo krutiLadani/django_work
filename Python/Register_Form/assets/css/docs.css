@@ -1,0 +1,200 @@
+/* Body and General Styles Start
+-------------------------------------------------- */
+body {}
+.validationMsg{
+  color: red;
+  float: right;
+}
+/* Body End
+-------------------------------------------------- */
+
+/* header Start 
+-------------------------------------------------- */
+#header {}
+
+/* header End
+-------------------------------------------------- */
+
+/* navbar Start 
+-------------------------------------------------- */
+#nav {}
+.navleft{
+	float: left;
+	width: 50%;
+}
+.navright{
+	float: right;
+	width: 25%;
+}
+.navleft > li > a {
+		color: gray;
+		font-size: 15px;
+		font-weight: bold;
+		background-color: transparent;
+}
+ .navleft > li > a:hover,
+ .navleft > li > a:focus {
+		color: #008FD3;
+		background-color: transparent;
+		border-bottom: 1px solid #008FD3;
+		border-top: 1px solid #008FD3;
+}
+.navleft > .active > a,
+.navleft > .active > a:hover,
+.navleft > .active > a:focus {
+		color: #008FD3;
+		background-color: transparent;
+		border-bottom: 1px solid #008FD3;
+		border-top: 1px solid #008FD3;
+}
+.social-icons{
+	padding-top: 15px;
+	float: right;
+}
+
+/* navbar End
+-------------------------------------------------- */
+	 
+/* content Start 
+-------------------------------------------------- */
+.sectionHeading{	
+	text-align: center;	
+}
+.sectionHeading hr{
+	width: 50%;
+	border:1px solid gray;
+}
+#contact-form {
+	background-repeat: no-repeat;
+	margin-top: 52px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	color: white;
+	background-size: cover;
+}
+#contact-form .container{
+	background-color: rgba(0,0,100,0.2);
+	border-radius: 10px;
+}
+#contact-form textarea{
+	resize: none;
+}
+
+/* content End
+-------------------------------------------------- */
+
+#shopping-section{
+	padding-top:20px; 
+	margin-top: 50px;
+	background-color: rgba(0,0,0,0.1);
+}
+#shopping-section nav a{
+	position: relative;
+	color: grey;
+	border-bottom:1px solid black;
+}
+#shopping-section nav a::after{
+  position: absolute;
+  content: '';
+  top:0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: grey;
+  transform-origin:left;
+  transition:width 0.50s ease;
+  z-index:-1;
+}
+#shopping-section nav a:hover::after{
+	width: 100%;
+}
+#shopping-section nav a:hover{
+	background-color: transparent;
+	color:white;
+	border-right: 5px solid #008FD3;
+}
+#shopping-section #mySideBar h3{
+	margin: 0px 10px 10px 30px;
+}
+#shopping-section .row{
+	margin-right: 0px;
+}
+.thumbnail{
+	margin-left: 30px;
+}
+.limit-text{
+   height: 98px;
+   overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  font-size: 14px;
+}
+/* footer Start 
+-------------------------------------------------- */
+#footer {}
+
+/* footer End
+-------------------------------------------------- */
+
+/* xyz inner page Start 
+-------------------------------------------------- */
+
+
+/* xyz inner page End
+-------------------------------------------------- *
+
+/* Responsive Style Start 
+-------------------------------------------------- */
+@media (max-width: 1199px) {
+}
+
+@media (max-width: 991px) {
+}
+
+@media (max-width: 767px) {
+.navleft{
+	width: 100%
+}
+}
+
+@media (max-width: 1200px) {
+    #header .navbar-header {
+        float: none;
+    }
+    #header .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    #header .navbar-toggle {
+        display: block;
+    }
+    #header .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    #header .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    #header .navbar-collapse.collapse {
+        display: none!important;
+    }
+    #header .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    #header .navbar-nav>li {
+        float: none;
+    }
+    #header .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    #header .collapse.in{
+        display:block !important;
+    }
+}
+
+/* Responsive Style End
+-------------------------------------------------- */

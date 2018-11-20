@@ -1,0 +1,39 @@
+{% extends "../base.html" %}
+{% block content %}
+  <h2> <center> <i> Sign up </i> </center> </h2>
+  <p class="mendetory"> *All the fields below are mendetory </p>
+  <form method="post" name="myform" class="form" onsubmit="return validateform()">
+    {% csrf_token %}
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% if field.help_text %}
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    <button type="submit" class="submit">Sign up</button>
+  </form>
+
+<script type="text/javascript">  
+function validateform(){  
+var uname=document.myform.username.value;  
+var fname=document.myform.Firstname.value;
+var lname=document.myform.Lastname.value;
+var email=document.myform.Email.value;
+var password=document.myform.Password.value; 
+var con_password=document.myform.ConfirmPassword.value; 
+  
+if (uname <=3){  
+  alert("Name can't be blank");  
+  return false;  
+}else if(password.length<6){  
+  alert("Password must be at least 6 characters long.");  
+  return false;  
+  }  
+}  
+</script>  
+{% endblock %}            

@@ -1,0 +1,86 @@
+# Model
+
+All model should be TimeStampedModel model.(Django TimeStampedModel) 
+
+1) Institute:
+    - name
+    - slug( for URL)
+    - logo
+    - email
+    - contact
+    - brochure(file upload)
+    - is_active
+
+2) branch:
+    - institute(relation)
+    - name
+    - slug( for URL)
+    - email
+    - address
+    - contact
+    - brochure(file upload)
+    - is_active
+
+3) Fee:
+
+    - Fee_type
+    - Amount
+    - is_active
+
+
+4) Override Base User Model: 
+
+    + Add below field:
+        - Enrollment number(unique)
+        - Branch(Relation)
+        - Course(MBA, B.Tech , etc)
+        - Include personal detials(Contact,DOB etc)
+        - is_active
+
+5) Transaction:
+
+    - UUID(Auto generate) (primary key)
+    - user(relation)
+    - Paid_amount
+    - status(Pending , Completed, Failed)
+    - request_dump(json)
+
+# Flow:
+
+- Home Page (Login & Register)
+- Register student using user model 
+    - username
+    - pwd
+    - contact
+    - first name, last name
+    - email
+    - enrollment
+    - Institute
+    - Branch (Using ajax on selection of institute)
+    - course
+    - Include personal detials(Contact,DOB etc)
+    - etc.
+
+- Forgot Password
+- After Login, Student can pay fees using selection of Fee type(Admission Fee, Exam fee, etc)
+- Integrate Payment Gateway.(All payment must be tracked.)
+- After Payment, Generate receipt and download it.
+
+# Payment Gateway:
+
+1) Paytm:-
+    - Nikhil, Manoj, Milan, Sahil
+
+2) CCAvenue:-
+    - Pranav, Bansi, Prakash, Harshida 
+
+3) Paypal:-
+    - Siddhi, Jaimin, Pankaj, Vahta, Shreya
+
+4) Razorpay:-
+    - Mohit, Maulik, Ajay, Megha, Jeenit
+
+*** Institute ,Branch & Fee model data should be add from the admin panel.
+*** Validation Required.
+*** Basic Bootstarp Design.
+*** Create extra model if required.

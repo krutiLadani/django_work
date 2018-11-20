@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">-->
+    <meta name = "format-detection" content = "telephone=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> &bull; Unknown Friends &bull; </title>
+    <!-- Slick -->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>-->
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles-->
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/css/css3.css" rel="stylesheet">
+
+    <script src="assets/js/modernizr-2.8.0.min.js"></script>
+    <script>
+            if(localStorage.getItem('nick-name')==""){
+            window.location = "index.html"
+        }
+    </script>
+</head>
+<body id="main">
+
+    <div class="logo">
+        <h2> &bull; Unknown Friends &bull; </h2>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <div style="height: 90%;overflow: auto">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <ul id="user_ul">
+                <!--<li><span> &bull; </span> User 1</li>-->
+            </ul>
+        </div>
+
+        <div style="height: 10%">
+            <a id="log_out" onclick="leave()"><span style="font-size: 12px" class="glyphicon glyphicon-log-out"></span> Leave Room</a>
+        </div>
+    </div>
+
+    <div class="chat-window">
+
+        <button id="toggle-btn" type="button" class="btn glyphicon glyphicon-user" onclick="openNav()"></button>
+
+        <div class="msg-window" id="msg-window">
+            <ul id="c_ul">
+                <!--<li>-->
+                    <!--<div class='panel panel-default'>-->
+                        <!--<div class='panel-heading'>User Name<span>12:40:50</span></div>-->
+                        <!--<div class='panel-body'> msgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsg </div>-->
+                    <!--</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+
+    <div class="typing-window">
+        <form class="form-inline" method="POST">
+            <div class="input-group" style="width: 100%">
+                <input type="text" class="form-control" name="txtmsg" id="msg" placeholder="Type a message..." autocomplete="off" autofocus>
+                <div id="send-button" class="input-group-addon" onclick="return send_msg()">Send</div>
+            </div>
+            <div class="emoji" id="emoji-div" style="width: 100%;overflow: auto;white-space: nowrap;">
+            </div>
+        </form>
+    </div>
+
+
+    <!-- JavaScript files -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!--Slick-->
+    <script type="text/javascript" src="slick/slick.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="assets/js/cssua.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+</html>

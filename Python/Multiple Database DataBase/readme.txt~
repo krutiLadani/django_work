@@ -1,0 +1,36 @@
+****** Wel-Come To Database ******
+
+This is an application where you can
+
+1.  Create Database
+2.  Open Existing Database
+3.  List All the Existing Database
+4.  List All the Tables of specific Database
+5.  Create New Table into Database
+6.  Display Data of Table
+7.  Insert Records into Table
+8.  Update Records of Table
+9.  Delete Records from Table
+10. Add New Column into Table
+11. Delete Existing column from Table
+12. Drop the Table
+
+Here is the Process to use this application in Ubuntu,
+
+1. First of all, If you don't have installed Python then first install python, open the follwing link and follow the process to install python
+
+-> "http://tecadmin.net/install-python-3-4-on-ubuntu-and-linuxmint/"
+
+2. After that you have to download MySQL Server, For installing it just type below code into terminal.
+
+-> sudo apt-get install python2.7-mysqldb
+
+3. After Successfully installation you have to install some another file which is PrettyTable, For that type below code into terminal
+
+-> sudo apt-get update
+-> sudo apt-get install python-prettytable
+
+4.Now you can run the application.
+
+
+******** Happy Programming ********

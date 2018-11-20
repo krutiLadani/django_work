@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="pro_detail">
+  <p> <strong> Product View: </strong> </p> <img src="{{ product.product_img.url }}" alt="{{ product.product_name }} image"/> 
+  <p><strong>Product Name: </strong>{{ product.product_name }}</p>
+  <p><strong>Product Price:</strong>  <i class= "fa fa-inr font"> {{product.product_price}} </i> </p> <!-- author detail link not yet defined -->
+  <p><strong>Brand:</strong>  {{ product.product_brand }} </p>
+  <p><strong>Description:</strong> {{product.product_description}}</p>
+  {% if user.is_authenticated %}
+    <button type="submit"  class="add" data-id="{{ product.id }}">ADD TO CART</button>
+  {% else %}
+  <form action="{% url 'login' %}">
+  <button type="submit"  class="add" data-id="{{ product.id }}">ADD TO CART</button>
+  {% endif %}
+  </form>
+  
+  {% if user.is_authenticated %}
+  <button type="submit"  class="buy"> <a href="{% url 'cart' %}" style="color: #000"> BUY NOW </a>
+  </button>
+  {% else %}
+  <button type="submit"  class="buy"> <a href="{% url 'cart' %}" style="color: #000"> BUY NOW </a>
+  </button>
+  {% endif %}
+</div>
+<script type="text/javascript">
+$(".add").click(function(){
+  var username = "{{ request.user.username }}";
+  var product_id = $(this).attr('data-id');
+  
+  $.ajax({
+    method: "POST",
+    url: '/shop/add_to_cart', 
+    data: {"username": username, "product_id": product_id, "total_product": 1},
+    dataType: 'json',
+})
+  .done(function( data ) {
+    if(data.success){
+      window.location = data.cart_url;
+      console.log('test');
+    }
+  });
+
+});
+
+</script>
+
+{% endblock %}
+
+

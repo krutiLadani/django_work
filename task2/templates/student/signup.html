@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 pannel_padding">
+        {% if form.errors %}
+          <p class="form_error">{{form.error}}</p>
+        {% endif %}
+        <div class="panel panel-login">
+            <div class="panel-heading">
+                <div class="row">
+                    <h2> Registration </h2>
+                </div>
+                <hr>
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form id="register-form-link" method="POST" role="form" style="display: block;" action="{% url 'signup' %}">
+                            {% csrf_token %}
+                            <!-- {{ form.as_p }} -->
+                            <div class="form-group">
+                                <input type="text" name="username" id="username" tabindex="2" class="form-control" placeholder="Username" value="">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password1" id="password1" tabindex="2" class="form-control" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password2" id="password2" tabindex="2" class="form-control" placeholder="Confirm Password">
+                            </div>
+                            <div class="form-group">
+                                <input name="first_name" id="first_name" tabindex="2" class="form-control" placeholder="First Name">
+                            </div>
+                            <div class="form-group">
+                                <input name="last_name" id="last_name" tabindex="2" class="form-control" placeholder="Last Name">
+                            </div>
+                            <div class="form-group">
+                                <input name="email" id="email" tabindex="2" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input name="contact" id="contact" tabindex="2" class="form-control" placeholder="Contact">
+                            </div>
+                            <div class="form-group">
+                                <input name="enrol_no" id="enrol_no" tabindex="2" class="form-control" placeholder="Enrollment No.">
+                            </div>
+                            <!-- <div class="form-group">
+                                <div class="col-md-4">
+                                <label class="label_padding" id="id_institute">Institute</label>
+                                {{ form.institute }}
+                                </div>
+                                <div class="col-md-4">
+                                <label class="label_padding" id="id_branch">Branch</label>
+                                {{ form.branch }}
+                                </div>
+                                <div class="col-md-4">
+                                <label class="label_padding">Course</label>
+                                {{ form.course }}
+                                </div>
+                            </div> -->
+                             <div class="form-group">
+                                <select name="institute" id="institute" tabindex="2" class="form-control" value="{{ form.institute }}">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select name="branch" id="branch" tabindex="2" class="form-control" value="{{ form.branch }}"></select>
+                            </div>
+                            <div class="form-group">
+                                <select name="course" id="course" tabindex="2" class="form-control" placeholder="Course">
+                                    <option value="M">MBA</option>
+                                    <option value="B">B.E.</option>
+                                    <option value="C">BCA</option>
+                                </select>   
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="birth_date" id="birth_date" tabindex="2" class="form-control docs-date" placeholder="Birth Date">
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="col-sm-6 col-sm-offset-3">
+                                    <button type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">Register Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$(document).ready(function(){
+     $( "#birth_date" ).datepicker({
+        dateFormat: 'yy-mm-dd'
+     });
+    
+    $("#institute").change(function () {
+    debugger
+      var countryId = $(this).val();
+      debugger;
+      $.ajax({
+        data: {"countryId": countryId},
+        type: "POST",
+        url: "/student/get_branches/",
+        success: function (data) {
+            debugger;
+            $("#branch").html(data);
+        }
+      });
+      return false;
+    });
+
+})
+</script>
+
+{% endblock %}

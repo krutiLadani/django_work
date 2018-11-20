@@ -1,0 +1,81 @@
+{% extends 'Topics/general.html' %}
+
+{% block title %}
+    Registration
+{% endblock %}
+
+{% block content %}
+    <div class="container" style="padding-top: 20px">
+        <div class="row">
+            <div class="col s6 offset-s3 card center-align" style="padding: 10px">
+                <form method="post" action="{% url 'register' %}">
+                    {% csrf_token %}
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="input-field">
+                                    {{ form.username }}
+                                    <label>{{ form.username.label }}</label>
+                                    {% if form.errors.username %}
+                                        {{ form.errors.username }}
+                                    {% endif %}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-field">
+                                    {{ form.first_name }}
+                                    <label>{{ form.first_name.label }}</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-field">
+                                    {{ form.last_name }}
+                                    <label>{{ form.last_name.label }}</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-field">
+                                    {{ form.email }}
+                                    <label>{{ form.email.label }}</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-field">
+                                    {{ form.password1 }}
+                                    <label>{{ form.password1.label }}</label>
+                                    {% if form.errors.password1 %}
+                                        {{ form.errors.password1 }}
+                                    {% endif %}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-field">
+                                    {{ form.password2 }}
+                                    <label>{{ form.password2.label }}</label>
+                                    {% if form.errors.password2 %}
+                                        {{ form.errors.password2 }}
+                                    {% endif %}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="btn right" type="submit" value="Register"/>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

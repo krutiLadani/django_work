@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block title %}<title>Blogs</title>{% endblock %}
+  {% load static %} 
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  </head>
+
+{% if post_list %}
+    <ul>
+    {% for post in post_list %}
+        <li>
+            <a href="/blogs/post/{{ post.id }}">{{ post.content }}</a>
+            <span>{{ post.created_at }}</span>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No post is made during the past two days.</p>
+{% endif %}
+
+<img src="{% static 'blogs/Screenshot from 2018-03-22 15:44:47.png' %}" />

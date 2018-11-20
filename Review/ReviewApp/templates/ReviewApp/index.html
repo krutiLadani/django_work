@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            General
+        {% endblock %}
+    </title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{% static 'ReviewApp/css/materialize.css' %}" type="text/css" rel="stylesheet"
+          media="screen,projection"/>
+    <link href="{% static 'ReviewApp/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    {% block other_css %}
+    {% endblock %}
+</head>
+<body>
+
+{% block content %}
+<div class="valign-wrapper" style="height: 100%;">
+    <div class="center-block">
+        <form method="post" action="{% url 'index' %}">
+            {% csrf_token %}
+            {{ form.harshida_review.label }}{{ form.harshida_review }}<br>
+            {{ form.sarang_review.label }}{{ form.sarang_review }}<br>
+            {{ form.chintan_review.label }}{{ form.chintan_review }}<br>
+            {{ form.other_review.label }}{{ form.other_review}}<br>
+            <input class="btn right" type="submit" value="Submit"/>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="{% static 'ReviewApp/js/materialize.js' %}"></script>
+<script src="{% static 'ReviewApp/js/init.js' %}"></script>
+<script src="{% static 'ReviewApp/js/custom.js' %}"></script>
+{% block other_scripts %}
+{% endblock %}
+</body>
+</html>

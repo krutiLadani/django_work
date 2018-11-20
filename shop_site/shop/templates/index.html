@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <div class="items">
+     <div class="container">
+      <div class="row">
+         <div class="col-md-3">
+            <h3> CATEGORY_KITCHEN_APPLIANCES </h3>
+            <ul>
+            <li> <a> Food Processor </a> </li>
+            <li> <a> New Age Cooking </a> </li>
+            <li> <a> Microwaves ovens </a> </li>
+            <li> <a> stoves and Cooktops </a> </li>
+            <li> <a> Tosaters and sandwichmakers </a> </li>
+            <li> <a> Coffee and Teamakers </a> </li>
+            </ul>
+            <h3> BRAND </h3>
+            <ul>
+            <li> <a> Phillips </a> </li>
+            <li> <a> LG </a> </li>
+            <li> <a> Croma </a> </li>
+         </div>
+         <div class="col-md-9">
+          {% if user.is_authenticated %}
+           <div class="list_items">
+           <ul>
+           <li> <a href="{% url 'index' %}">Home</a></li>
+           <li style="padding:5 15px;"> <a href="{% url 'cart' %}">Cart</a> </li>
+           </ul>
+           </div>
+           {% endif %}
+           <h3> PRODUCTS </h3>
+
+           <div class="row">
+           {% for product in products  %}
+           
+           <div class="col-md-4">
+               <div class="part">
+                <img src="{{ product.product_img.url }}" alt="{{ product.product_name }} image"/> 
+                <p>  <a href="{% url 'details' pk=product.id %}">{{ product.product_name }}</a> </p> 
+
+              <h5> PRICE: <i class= "fa fa-inr"> {{product.product_price}} </i> </h5>
+              <p> BRAND: {{ product.product_brand }} </p>
+           </div>
+          </div>
+           {% endfor %}
+          {% if products.has_other_pages %}
+            <ul class="pagination">
+              {% if products.has_previous %}
+                <li><a href="?page={{ products.previous_page_number }}">&laquo;</a></li>
+              {% else %}
+                <li class="disabled"><span>&laquo;</span></li>
+              {% endif %}
+              {% for i in products.paginator.page_range %}
+                {% if products.number == i %}
+                  <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                {% else %}
+                  <li><a href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+              {% endfor %}
+              {% if products.has_next %}
+                <li><a href="?page={{ products.next_page_number }}">&raquo;</a></li>
+              {% else %}
+                <li class="disabled"><span>&raquo;</span></li>
+              {% endif %}
+            </ul>
+            {% endif %}
+           </div>
+        </div>
+         </div>
+      </div>
+    </div>  
+{% endblock %}

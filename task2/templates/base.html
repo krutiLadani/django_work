@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+
+        <meta charset="utf-8">
+       <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+        
+        <!-- dATE PICKER -->
+        <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+        <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+       
+    </head>
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <nav class="navbar">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <div class="navbar-brand">Django Task 3</div>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="{% url 'student_index' %}">Home</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'fees' %}">Fees</a></li>
+                {% endif %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                <li>
+                    <p> Hi<strong> {{ user.username }}</strong>! </p>
+                    <a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in padding_right"></span>logout</a></li>
+                {% else %}
+                <li><a href="{% url 'signup' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                {% endif %}
+            </ul>
+          </div>
+        </nav>
+        <!-- <div class="container-fluid header_style">
+            <div class="container">
+                <div class="row ">
+                    <div class="header">
+                        <div class="col-md-9">
+                                <h2>Django Task 2</h2> 
+                        </div>
+                        <div class="col-md-3">
+                            {% if user.is_authenticated %}
+                            <p class="uname"> Hi {{ user.username }}! </p>
+                            <p><a href="{% url 'logout' %}" class="name">logout</a></p>
+                            {% else %}
+                            <a href="{% url 'login' %}" class="pull-right">Login</a>
+                            <a href="{% url 'signup' %}" class="pull-right">SignUp</a>
+                           {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="body_style">
+            <div class="container">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </body>
+</html>
