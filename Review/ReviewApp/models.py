@@ -7,7 +7,7 @@ from django.db import models
 
 
 class Review(models.Model):
-    harshida_review = models.TextField()
-    sarang_review = models.TextField()
-    chintan_review = models.TextField()
+    kruti_review = models.TextField()
+    khushi_review = models.TextField()
+    payu_review = models.TextField()
     other_review = models.TextField()
